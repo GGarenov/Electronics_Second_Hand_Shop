@@ -1,41 +1,82 @@
 <body>
 
-    <div id="container">
+    {{!-- <div id="container">
 
 
 
         <section id="detailsPage">
             <div id="detailsInfo">
-                <h1>Name: Laptop HP EliteBook 820 G4</h1>
-                <div class="info"><img src="./image/laptop.webp"></div>
+                <h1>Name: {{offer.name}}</h1>
+                <div class="info"><img src={{offer.imageUrl}}></div>
 
                 <div class="info">
-                    <h3>Type: Laptop</h3>
-                    <h3>Year of Production: 2008</h3>
-                    <h3>Years of Exploitation: 12</h3>
-                    <h3>Damages: The product has minimal signs of use, not affecting its functionality.</h3>
-                    <h3>Description: Intel Core i5-7200U (3M, 2.50 GHz, up to 3.10 GHz), 8GB DDR4, 256GB SSD, Intel HD
-                        Graphics 620, 12.5 inches (31.75 cm), 1366x768 HD</h3>
-                    <h2>Price: $153</h2>
+                    <h3>Type: {{offer.type}}</h3>
+                    <h3>Year of Production: {{offer.year}}</h3>
+                    <h3>Years of Exploitation: {{offer.exploit}}</h3>
+                    <h3>Damages: {{offer.damage}}</h3>
+                    <h3>Description: {{offer.description}}</h3>
+                    <h2>Price: {{offer.price}}</h2>
                 </div>
 
                 <!--If there is user logged in-->
+                {{#if isAuthenticated}}
                 <div class="buttons">
-
+                    {{#if isOwner}}
                     <!--If user is not owner of the toy post-->
                     <a href="#" class="buy-btn">Buy</a>
-
+                    {{else}}
                     <!--If user is owner-->
                     <a href="#" class="edit-btn">Edit</a>
                     <a href="#" class="delete-btn">Delete</a>
-
+                    {{/if}}
                     <!--If user is not the owner and is bought this toy-->
                     <p><span class="buy">Thank You For Your Purchase</span></p>
                 </div>
+                {{/if}}
             </div>
         </section>
 
 
+    </div> --}}
+
+
+    <div id="container">
+        <section id="detailsPage">
+            <div id="detailsInfo">
+                <h1>Name: {{offer.name}}</h1>
+                <div class="info"><img src={{offer.imageUrl}}></div>
+
+                <div class="info">
+                    <h3>Type: {{offer.type}}</h3>
+                    <h3>Year of Production: {{offer.year}}</h3>
+                    <h3>Years of Exploitation: {{offer.exploit}}</h3>
+                    <h3>Damages: {{offer.damage}}</h3>
+                    <h3>Description: {{offer.description}}</h3>
+                    <h2>Price: {{offer.price}}</h2>
+                </div>
+
+                <!-- Conditionally render buttons based on user's authentication and ownership -->
+                {{#if isAuthenticated}}
+                {{#if isOwner}}
+                <!-- If user is the owner of the offer -->
+                <div class="buttons">
+                    <a href="/posts/{{offer._id}}/edit" class="edit-btn">Edit</a>
+                    <a href="/posts/{{offer._id}}/delete" class="delete-btn">Delete</a>
+                </div>
+                {{else}}
+                <!-- If user is not the owner of the offer -->
+                <div class="buttons">
+                    <a href="#" class="buy-btn">Buy</a>
+                </div>
+                {{/if}}
+                {{/if}}
+
+                <!-- If the user is not the owner but has bought the offer -->
+                {{#if isBought}}
+                <p><span class="buy">Thank You For Your Purchase</span></p>
+                {{/if}}
+            </div>
+        </section>
     </div>
 
 </body>
