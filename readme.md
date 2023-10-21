@@ -29,3 +29,9 @@
 11. Add User model
     - simple validation in Schema
     - add method for register
+    - create first User record
+    - validate pass
+
+12. Hash password
+    - install bcrypt
+    - hash password
