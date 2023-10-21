@@ -18,7 +18,17 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  res.redirect("/");
+
+  //   try {
+  //     const token = await userService.login(email, password);
+
+  //     res.cookie("token", token, { httpOnly: true });
+  //     res.redirect("/");
+  //   } catch (error) {
+  //     const errorMessages = extractErrorMsgs(error);
+
+  //     res.status(404).render("user/login", { errorMessages });
+  //   }
 });
 
 module.exports = router;
