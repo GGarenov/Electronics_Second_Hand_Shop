@@ -1,2 +1,10 @@
 1. Init project and structure
 2. Setup developer environment
+3. Install express and nodemon
+    - configure bodyparser
+4. Add images and css in public folder
+
+5. Add html files in views folder
+
+6. Configure handlebars - Install express-handlebar
+    - configure view engine
