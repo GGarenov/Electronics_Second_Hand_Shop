@@ -18,3 +18,10 @@
 9. Add database
     - install mongoose
     - connect to db
+
+10. Authentication
+    - user controller
+    - add controller to routes
+    - fix navs
+    - render login
+    - render register

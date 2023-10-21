@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Second Hand Electronics</title>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -27,20 +27,21 @@
                 <!--For loggin users-->
                 <li><a href="#">Create Offer</a></li>
                 <li><a href="#">Search</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="/users/logout">Logout</a></li>
                 <!--For guest user-->
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register">Register</a></li>
 
             </ul>
 
         </nav>
 
-        {{body}}
 
         <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
     </div>
 
+    {{{body}}}
 </body>
+
 
 </html>
