@@ -8,3 +8,8 @@
 
 6. Configure handlebars - Install express-handlebar
     - configure view engine
+    - add main layout
+    - fix hyperlinks
+    - render homepage in hbs
+    
+7. Convert all html views to handlerbars (hbs) and group them by folders

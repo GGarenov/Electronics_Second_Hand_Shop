@@ -18,7 +18,7 @@ app.set("views", "src/views");
 
 //Routes
 app.get("/", (req, res) => {
-  res.send("Hellow from home page");
+  res.render("home");
 });
 
 app.use(routes);

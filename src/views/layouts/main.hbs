@@ -8,13 +8,21 @@
 </head>
 
 <body>
+    <!-- In case of error, you should display div with class "errorContainer" -->
+    <!-- You can choose to display the first error or all of them (error message/s in your opinion) -->
+
+    <!-- <div>
+        <div class="errorContainer">
+            <p>Error</p>
+        </div>
+    </div> -->
 
     <div id="container">
 
         <nav>
             <ul>
                 <!--For all users-->
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Catalog</a></li>
                 <!--For loggin users-->
                 <li><a href="#">Create Offer</a></li>
@@ -28,17 +36,7 @@
 
         </nav>
 
-        <section id="loginPage">
-            <form id='loginForm' action="#" method="">
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="" placeholder="Email">
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="" placeholder="Password">
-
-                <input type="submit" class="register" value="Login">
-            </form>
-        </section>
+        {{body}}
 
         <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
     </div>
