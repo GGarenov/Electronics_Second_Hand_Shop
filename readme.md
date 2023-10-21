@@ -19,9 +19,13 @@
     - install mongoose
     - connect to db
 
-10. Authentication
+10. Prepare user functionality
     - user controller
     - add controller to routes
     - fix navs
     - render login
     - render register
+
+11. Add User model
+    - simple validation in Schema
+    - add method for register
