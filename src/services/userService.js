@@ -1,10 +1,7 @@
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
-
-exports.register = (userData) => User.create(userData);
-
-// const jwt = require("../lib/jwt");
-// const { SECRET } = require("../constants");
+const jwt = require("../lib/jwt");
+const { SECRET } = require("../contants");
 
 async function validatePassword(password, userPassword) {
   //validate password

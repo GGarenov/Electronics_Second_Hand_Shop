@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
+const { extractErrorMsgs } = require("../utils/errorHandler");
 
 router.get("/register", (req, res) => {
   res.render("user/register");
@@ -8,8 +9,15 @@ router.get("/register", (req, res) => {
 router.post("/register", async (req, res) => {
   const { email, username, password, rePassword } = req.body;
 
-  await userService.register({ email, username, password, rePassword });
-  res.redirect("/users/login");
+  try {
+    const token = await userService.register({ email, username, password, rePassword });
+
+    res.cookie("token", token, { httpOnly: true });
+    res.redirect("/");
+  } catch (error) {
+    const errorMessages = extractErrorMsgs(error);
+    res.status(404).render("user/register", { errorMessages });
+  }
 });
 
 router.get("/login", (req, res) => {
@@ -19,16 +27,22 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  //   try {
-  //     const token = await userService.login(email, password);
+  try {
+    const token = await userService.login(email, password);
 
-  //     res.cookie("token", token, { httpOnly: true });
-  //     res.redirect("/");
-  //   } catch (error) {
-  //     const errorMessages = extractErrorMsgs(error);
+    res.cookie("token", token, { httpOnly: true });
+    res.redirect("/");
+  } catch (error) {
+    const errorMessages = extractErrorMsgs(error);
 
-  //     res.status(404).render("user/login", { errorMessages });
-  //   }
+    res.status(404).render("user/login", { errorMessages });
+  }
+});
+
+//TO DO: provide logout endpoint
+router.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/");
 });
 
 module.exports = router;

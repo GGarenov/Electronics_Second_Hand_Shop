@@ -45,3 +45,5 @@
     - promisify jsonwebtoker
     - generate SECRET
     - generate token in service login
+
+15. Return token in cookie
